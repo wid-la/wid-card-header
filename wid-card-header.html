@@ -43,41 +43,33 @@ Example:
       text-decoration: none;
     }
 
-    div {
-      height: 100%;
-    }
-
-    iron-image {
-      height: 100%;
+    [main] {
+      position: relative;
       width: 100%;
+      height: 100%;
     }
 
     [left] {
-      height: 350px;
+      position: relative;
+      height: 100%;
       width: 100%;
-      background-color: #E6E6E6;
-    }
-
-    [left] > * {
-      margin: auto;
     }
 
     [right] {
-      height: 100%;
       padding: 15px;
     }
 
   </style>
 
   <template>
-    
+
     <iron-media-query query="(max-width: 639px)" query-matches="{{_isMobile}}"></iron-media-query>
 
-    <div class$="[[_computeCardClasses(_isMobile)]]">
+    <div main class$="[[_computeCardClasses(_isMobile)]]">
 
       <div left class$="[[_computeCardLeftClasses(_isMobile)]]">
 
-        <iron-image src$="[[item.image]]" preload sizing="cover"></iron-image>
+        <iron-image class="fit" src$="[[item.image]]" preload sizing="cover"></iron-image>
         <template is="dom-if" if="[[item.learnMoreUrl]]">
 
           <a href$="[[item.learnMoreUrl]]" target="_blank">
