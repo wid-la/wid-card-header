@@ -48,6 +48,19 @@ Example:
 
     [right] {
       padding: 15px;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    [right] h2, [right] h4{
+      padding: 0;
+      margin: 0;
+    }
+
+    [right] .logo {
+      height: 72px;
+      width: 72px;
+      margin-right: 10px;
     }
 
   </style>
@@ -63,14 +76,28 @@ Example:
         <iron-image class="fit" src$="[[item.image]]" preload sizing="cover"></iron-image>
 
       </div>
-      <div right class="flex-4 scroll">
+      <div right class="flex-4 layout vertical scroll">
 
-        <h2>[[item.name]]</h2>
-        <h4>[[item.category]]</h4>
+        <div class="layout horizontal">
+
+          <template is="dom-if" if="[[item.logo]]">
+            <iron-image class="logo" src$="[[item.logo]]" preload sizing="cover"></iron-image>
+          </template>
+          <div class="flex layout vertical">
+
+            <h2>[[item.name]]</h2>
+            <h4>[[item.category]]</h4>
+
+          </div>
+        </div>
+
+
+
         <p>[[item.content]]</p>
 
         <template is="dom-if" if="[[item.learnMoreUrl]]">
 
+          <div class="flex"></div>
           <div class="layout horizontal">
 
             <span class="flex"></span>
