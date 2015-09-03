@@ -72,9 +72,7 @@ Example:
     <div main class$="[[_computeCardClasses(_isMobile)]]">
 
       <div left class$="[[_computeCardLeftClasses(_isMobile)]]">
-
         <iron-image class="fit" src$="[[item.image]]" preload sizing="cover"></iron-image>
-
       </div>
       <div right class="flex-4 layout vertical scroll">
 
@@ -89,12 +87,9 @@ Example:
             <h4>[[item.category]]</h4>
 
           </div>
+
         </div>
-
-
-
         <p>[[item.content]]</p>
-
         <template is="dom-if" if="[[item.learnMoreUrl]]">
 
           <div class="flex"></div>
