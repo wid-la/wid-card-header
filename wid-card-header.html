@@ -4,18 +4,6 @@
 <link rel="import" href="../paper-button/paper-button.html">
 
 
-<!--
-An element providing a solution to no problem in particular.
-
-Example:
-
-    <wid-card-header></wid-card-header>
-
-@group Seed Elements
-@element wid-card-header
-@demo demo/index.html
-@hero hero.svg
--->
 <dom-module id="wid-card-header">
 
   <style>
@@ -122,6 +110,10 @@ Example:
 
     properties: {
 
+      /**
+       * The model.
+       * @type {{name: string, category: string, image: string, titleIcon: string, content: string, learnMoreUrl: string}}
+       */
       item: {
         type: Object,
         value: function () {
@@ -131,10 +123,21 @@ Example:
 
     },
 
+    /**
+     * Compute the card classes.
+     * If the device is a mobile, the layout is vertical.
+     * If not, the layout is horizontal.
+     * @return {String} Css Class of the card.
+     */
     _computeCardClasses: function () {
       return 'layout center-center ' + ((this._isMobile) ? 'vertical' : 'horizontal');
     },
 
+    /**
+     * Compute the left div classes.
+     * Whether horizontal or vertical depending on the device type.
+     * @return {String} Css Class of the left div.
+     */
     _computeCardLeftClasses: function () {
       return 'flex-3 layout center-center ' + ((this._isMobile) ? 'horizontal' : 'vertical');
     }
